@@ -20,14 +20,19 @@ while True:
             control.show_time_distribution_till_now(day_duration)
         elif action_id == 3:
             # 吃饭 鱼香肉丝 吃的很开心 202009061200 202009062000
+            print("最近两天的全部记录如下：")
             print(control.get_data_recent_2_days())
+            print("*********************************************************")
+            print("输入数据样例：吃饭 喝喜茶 真开心 202009071200 202009071300")
+            print("*********************************************************")
+            print("注意，每条输入只对应当天")
             content = input(">>> 输入插入记录:")
             content = content.split(" ")
             print("输入内容为:", content)
             try:
                 content = control.instert_time_control(*content)
             except Exception as e:
-                print("插入失败,检查输入格式")
+                print("插入失败,检查输入格式\n")
         elif action_id == 4:
             ids = input(">>> 输入要删除的记录id:")
             ids = ids.split(",")
