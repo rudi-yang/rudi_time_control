@@ -26,11 +26,14 @@ while True:
             print("输入数据样例：吃饭 喝喜茶 真开心 202009071200 202009071300")
             print("*********************************************************")
             print("注意，每条输入只对应当天")
-            content = input(">>> 输入插入记录:")
-            content = content.split(" ")
-            print("输入内容为:", content)
+
+            input_action  = input(">>> 行为：")
+            input_cate = input(">>> 类目：")
+            input_detail  = input(">>> 具体：")
+            input_start_timestamp = input(">>> 开始时间：")
+            input_end_timestamp = input(">>> 结束时间：")
             try:
-                content = control.instert_time_control(*content)
+                content = control.instert_time_control(input_action, input_cate,input_detail,input_start_timestamp,input_end_timestamp)
             except Exception as e:
                 print("插入失败,检查输入格式\n")
         elif action_id == 4:

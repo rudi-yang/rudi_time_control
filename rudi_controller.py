@@ -49,6 +49,7 @@ class RudiControl():
 
     def get_data_all(self):
         data = pd.read_sql('select * from time_control', self.conn)
+        data = data.sort_values("start_timestamp")
         return data
 
     def get_data_recent_2_days(self):
@@ -61,6 +62,7 @@ class RudiControl():
 
         data = data[data["ds"] <= dt_now_integer]
         data = data[data["ds"] >= dt_before_integer]
+        data = data.sort_values("start_timestamp")
         return data
 
     def show_time_distribution_till_now(self, cnt_day):
